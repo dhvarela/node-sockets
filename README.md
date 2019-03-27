@@ -1,0 +1,5 @@
+# Get started:
+
+```
+npm install
+```
