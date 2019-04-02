@@ -13,7 +13,8 @@ const port = process.env.PORT || 3000;
 // enable public folder
 app.use(express.static(publicPath));
 
-let io = socketIO(server);
+module.exports.io = socketIO(server);
+require('./sockets/sockets');
 
 server.listen(port, (err) => {
 
