@@ -13,7 +13,8 @@ io.on('connection', (client) => {
     });
 
     client.emit('currentState', {
-        current: ticketControl.getLastTicket()
+        current: ticketControl.getLastTicket(),
+        last4: ticketControl.getLast4()
     });
 
     client.on('attendTicket', (data, callback) => {
@@ -29,6 +30,11 @@ io.on('connection', (client) => {
 
         callback(serveTicket);
 
-        // TODO notify modifications to last 4
+        // notify modifications to last 4
+        client.broadcast.emit('last4', {
+            last4: ticketControl.getLast4()
+        });
+
+
     });
 });

@@ -47,6 +47,10 @@ class TicketControl {
         return `Ticket ${ this.last }`;
     }
 
+    getLast4() {
+        return this.theLast4;
+    }
+
     serveTicket(desktop) {
 
         if (this.tickets.length === 0) {
